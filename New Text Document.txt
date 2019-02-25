@@ -1,0 +1,9 @@
+c <- data.frame(c(1,2),c(2,4),c(2,5),header=FALSE)
+c
+
+y =c[which(c[,2]==4),]
+
+mean_ht = mean(height)
+sd_ht = sd(height)
+
+z_score = (71-mean_ht)/sd_ht
