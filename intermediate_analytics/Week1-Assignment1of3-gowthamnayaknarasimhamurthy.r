@@ -4,7 +4,7 @@
 country = c("China", "India", "China", "China", "India", "India", "China", "USA", "India", "China", "China", "USA", "India")
 
 #create second vector of the same length as country
-major = c("Food Science", "Electronics & Telecommunication", "Finance & Management", "Finance & Math", "Computer Engineering", "Engineering", "Accounting", "Statistics", "Electronics & Telecommunication", "Finance & Internationl Busiess", "Agricultural & Natural Resource Economics", "Iternational Studies & Economics", "Electronics & Telecommunication")
+major <- c("Food Science", "Electronics & Telecommunication", "Finance & Management", "Finance & Math", "Computer Engineering", "Engineering", "Accounting", "Statistics", "Electronics & Telecommunication", "Finance & Internationl Busiess", "Agricultural & Natural Resource Economics", "Iternational Studies & Economics", "Electronics & Telecommunication")
 
 #create a data frame using our two vectors
 our_df = data.frame(country, major)
@@ -18,11 +18,11 @@ NROW(our_df)
 #2. what is the most represented country/majors in this class?
 
 #count of the most represented country in this class
-#data.frame(table(country))
+data.frame(table(country))
 #length(which(country=='China'))
 
 #count of the most represented major in this class
-#data.frame(table(major))
+data.frame(table(major))
 #length(which(major=="Electronics & Telecommunication"))
 
 #the most represented country in this class
@@ -41,19 +41,19 @@ l <- c(grep("Electronics", our_df$major))
     
 
 #4.who are these students who study electronic?
-# Question is uncertain
+# Question is unclear, I am  taking out all rows which study Electronics
 our_df[5,]
+print(our_df[which(our_df[,2]=="Electronics & Telecommunication"),])
 
 #4.1 how you interpret the results?
-for ( i in (0:nrow(our_df)))
-    print(our_df[i,])
-	
+# All the rows which contain Electronics & Telecommunication is printed
 
 #plot our countries
 plot(our_df$country)
 
 #can you troubleshoot this? what is missing? why is it missing?
-install.packages("maptools")
+# package maptools is missing in the R so downloading it
+#install.packages("maptools")
 library(maptools)
 data(wrld_simpl)
 myCountries = wrld_simpl@data$NAME %in% our_df$country
